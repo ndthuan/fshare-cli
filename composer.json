@@ -1,0 +1,17 @@
+{
+  "require": {
+    "php": "^5.5",
+    "ext-gearman": "*",
+    "symfony/console": "^3.0",
+    "ndthuan/aria2-rpc-adapter": "^0.1",
+    "monolog/monolog": "^1.18",
+    "php-di/php-di": "^5.2",
+    "ndthuan/fshare-lib": "^1.0",
+    "symfony/process": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ndthuan\\FshareCli\\": "src/"
+    }
+  }
+}

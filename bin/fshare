@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+use DI\ContainerBuilder;
+use Ndthuan\FshareCli\Command\DaemonCommand;
+use Ndthuan\FshareCli\Command\DownloadCommand;
+use Ndthuan\FshareCli\Command\WorkerCommand;
+use Symfony\Component\Console\Application;
+
+$baseDir = realpath(__DIR__ . '/..');
+
+require "$baseDir/vendor/autoload.php";
+
+$containerBuilder = new ContainerBuilder();
+$container = $containerBuilder->addDefinitions("$baseDir/config/services.php")
+    ->useAutowiring(true)
+    ->build();
+
+$application = new Application();
+$application->add($container->get(WorkerCommand::class));
+$application->add($container->get(DownloadCommand::class));
+$application->add(new DaemonCommand($argv[0], (int) $container->get('daemon.workers')));
+
+$application->run();

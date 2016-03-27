@@ -1,0 +1,8 @@
+fshare.email =
+fshare.password =
+aria2.rpc.url = http://localhost:6800/jsonrpc
+aria2.rpc.token =
+gearman.host = 127.0.0.1
+gearman.port = 4730
+http.client.userAgent =
+daemon.workers = 4
