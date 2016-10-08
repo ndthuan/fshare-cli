@@ -1,0 +1,8 @@
+fshare.email = {{getenv "FSHARE_EMAIL"}}
+fshare.password = {{getenv "FSHARE_PASSWORD"}}
+aria2.rpc.url = {{ or (getenv "ARIA2_URL") "http://localhost:6800/jsonrpc"}}
+aria2.rpc.token = {{ or (getenv "ARIA2_TOKEN") ""}}
+gearman.host = {{ or (getenv "GEARMAN_HOST") "127.0.0.1"}}
+gearman.port = {{ or (getenv "GEARMAN_PORT") "4730"}}
+http.client.userAgent = {{ or (getenv "HTTP_USER_AGENT") ""}}
+daemon.workers = {{ or (getenv "DAEMON_WORKERS") "4"}}
