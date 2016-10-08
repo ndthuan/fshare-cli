@@ -5,6 +5,7 @@ namespace Ndthuan\FshareCli\Downloading;
 use Ndthuan\Aria2RpcAdapter\Adapter;
 use Ndthuan\FshareLib\Api\DTO\FshareFile;
 use Ndthuan\FshareLib\Api\FshareClientInterface;
+use Ndthuan\FshareLib\FshareException;
 use Ndthuan\FshareLib\HtmlClient\DownloadUrlNotFoundException;
 
 class Aria2RpcDownloader implements DownloaderInterface
@@ -54,13 +55,13 @@ class Aria2RpcDownloader implements DownloaderInterface
      */
     private function doDownload(Job $job)
     {
-        $gid = $this->aria2Adapter
-            ->addUri(
-                [$this->getDownloadUrl($job->getFshareFile())],
-                ['dir' => $job->getDirectory()]
-            );
+        $downloadUrl = $this->getDownloadUrl($job->getFshareFile());
 
-        $this->waitForDownload($gid);
+        if ($downloadUrl) {
+            $gid = $this->aria2Adapter->addUri([$downloadUrl], ['dir' => $job->getDirectory()]);
+
+            $this->waitForDownload($gid);
+        }
     }
 
     /**
@@ -96,15 +97,11 @@ class Aria2RpcDownloader implements DownloaderInterface
                     break;
                 }
             } catch (\Exception $ex) {
-                if (!$ex instanceof DownloadUrlNotFoundException || $retries++ >= $this->maxTries) {
+                if (!$ex instanceof FshareException || $retries++ >= $this->maxTries) {
                     throw $ex;
                 }
             }
         };
-
-        if (!$downloadUrl) {
-            throw new DownloadUrlNotFoundException("Unable to fetch download url of " . $file->getUrl());
-        }
 
         return $downloadUrl;
     }
