@@ -17,6 +17,7 @@ RUN apk update
 RUN apk add autoconf build-base gearman-dev
 RUN pecl install gearman
 RUN echo 'extension=gearman.so' > /usr/local/etc/php/conf.d/gearman.ini
+RUN echo 'date.timezone=UTC' > /usr/local/etc/php/conf.d/timezone.ini
 RUN php composer.phar install --no-dev
 
 CMD confd -onetime -backend env && fshare daemon
