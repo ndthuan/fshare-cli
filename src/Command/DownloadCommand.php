@@ -54,7 +54,7 @@ class DownloadCommand extends Command
     protected function configure()
     {
         $this->addArgument('url', InputArgument::REQUIRED, 'The FShare URL (folder for file)')
-            ->addArgument('dir', InputArgument::OPTIONAL, 'Directory to save files', getenv('HOME'). '/Downloads');
+            ->addArgument('dir', InputArgument::OPTIONAL, 'Directory to save files');
     }
 
     /**
