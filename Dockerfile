@@ -1,4 +1,4 @@
-FROM php:5.6-alpine
+FROM php:5.6-cli
 
 MAINTAINER thuan@nguyens.xyz
 
@@ -12,9 +12,8 @@ WORKDIR /fshare-cli
 
 RUN ln -s /fshare-cli/bin/fshare /usr/bin/
 
-RUN echo 'http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
-RUN apk update
-RUN apk add autoconf build-base gearman-dev
+RUN apt-get update
+RUN apt-get install -y libgearman-dev git
 RUN pecl install gearman
 RUN echo 'extension=gearman.so' > /usr/local/etc/php/conf.d/gearman.ini
 RUN echo 'date.timezone=UTC' > /usr/local/etc/php/conf.d/timezone.ini

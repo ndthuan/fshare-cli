@@ -16,7 +16,6 @@ See [detailed installation guide](./INSTALL.md).
 - To save files to a different directory: `./bin/fshare download [The Fshare URL] /path/to/your/folder`
 
 # Limitation
-- Same as [the library](https://github.com/ndthuan/fshare-lib), this tool currently supports **free accounts** only.
 - This tool still lacks of abilities to control the queue like to pause/resume, stop or remove a download...
 
 # Probable Questions
@@ -32,13 +31,13 @@ So our Gearman server will keep public URLs such as `http://www.fshare.vn/file/S
 #### Why Gearman but not a more advanced queue server like RabbitMQ?
 RabbitMQ is too big for our simple needs. It requires more lines of code to do simple tasks as in our case.
 
-# Legitimacy
+# Legality
 This tool simply simulates a web browser. It does not hack into Fshare servers. Neither it redistributes the files.
 
 In a similar situation, there are tools to download videos from YouTube. Those tools are all legal.
 
 # Disclaimer
-**Use it at your own risks!** You are responsible for what you download, how you use downloaded files. The author and contributors of fshare-cli are not responsible for the violation (if any) to Fshare's terms of service which caused by fshare-cli's users.
+**Use it at your own risks!** You are legally responsible for what you download, how you use downloaded files. The author and contributors of fshare-cli are not accountable for the violation (if any) to Fshare's terms of service which caused by fshare-cli's users.
 
 # License
 Source code of this tool is released under MIT License.
