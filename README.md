@@ -32,9 +32,9 @@ So our Gearman server will keep public URLs such as `http://www.fshare.vn/file/S
 RabbitMQ is too big for our simple needs. It requires more lines of code to do simple tasks as in our case.
 
 # Legality
-This tool simply simulates a web browser. It does not hack into Fshare servers. Neither it redistributes the files.
+This tool simply simulates a web browser. It does not hack into Fshare servers. It does not redistributes the files, either.
 
-In a similar situation, there are tools to download videos from YouTube. Those tools are all legal.
+In a similar situation, there are tools/browser extensions to download media files from international sites such as YouTube, SoundCloud etc... Those tools exist without a legal issue.
 
 # Disclaimer
 **Use it at your own risks!** You are legally responsible for what you download, how you use downloaded files. The author and contributors of fshare-cli are not accountable for the violation (if any) to Fshare's terms of service which caused by fshare-cli's users.
